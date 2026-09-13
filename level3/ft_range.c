@@ -6,7 +6,7 @@
 /*   By: chlminga <chlminga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 14:35:26 by chlminga          #+#    #+#             */
-/*   Updated: 2026/09/13 18:08:42 by chlminga         ###   ########.fr       */
+/*   Updated: 2026/09/13 19:35:16 by chlminga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,31 @@ int	*ft_range(int start, int end)
 	tab[i] = end;
 	return (tab);
 }
+
+// int        *ft_range(int start, int end)
+// {
+//     int        *range;
+//     int        i;
+
+//     if (start > end)
+//         range = (int *)malloc(sizeof(int) * (start - end) + 1);
+//     else
+//         range = (int *)malloc(sizeof(int) * (end - start) + 1);
+//    //range = malloc(10000) on est en exam on s'en fout d'un bon malloc
+
+//     i = 0;
+//     while (start != end)
+//     {
+//         range[i++] = start;
+//         if (start > end)
+//             start--;
+//         else
+//             start++;
+//     }
+//     range[i] = start;
+//     return (range);
+// }
+
 
 int	main(void)
 {
