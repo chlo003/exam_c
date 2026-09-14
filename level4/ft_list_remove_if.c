@@ -1,32 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
+/*   ft_list_remove_if.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chlminga <chlminga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/13 19:49:47 by chlminga          #+#    #+#             */
-/*   Updated: 2026/09/14 16:44:01 by chlminga         ###   ########.fr       */
+/*   Created: 2026/09/14 16:46:03 by chlminga          #+#    #+#             */
+/*   Updated: 2026/09/14 17:36:25 by chlminga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
-void    ft_list_foreach(t_list *begin_list, void (*f)(int ))
+void	ft_list_remove_if(t_list **begin_list, int data_ref, int (*cmp)(int, int))
 {
-	while (begin_list)
+	t_list	*tmp;
+	t_list	**node;
+
+	node = begin_list;
+	while (*node)
 	{
-		(*f)(begin_list->data);
-		begin_list = begin_list->next;
+		if (cmp(data_ref, (*node)->data) == 0)
+		{
+			tmp = *node;
+			*node = (*node)->next;
+			free(tmp);
+		}
+		else
+			*node = (*node)->next;
 	}
 }
 
-// void	ft_plus(int data)
+// int	cmp(int first, int second)
 // {
-// 	data = data + 1;
-// 	printf("%d \n", data);
+// 	if (first == second)
+// 		return (0);
+// 	else
+// 		return (1);
 // }
 
 // int	main(void)
@@ -42,7 +54,10 @@ void    ft_list_foreach(t_list *begin_list, void (*f)(int ))
 
 // 	// duo->data = 5;
 // 	// duo->next = NULL;
+// 	printf("%d", test->data);
 
-// 	printf("%d", ft_list_foreach(test, ft_plus(5)));
+// 	ft_list_remove_if(&test, 5, cmp);
+
+// 	// printf("%d", test->data);
 // 	return (0);
 // }

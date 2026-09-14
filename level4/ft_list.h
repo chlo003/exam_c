@@ -6,12 +6,12 @@
 /*   By: chlminga <chlminga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 19:51:29 by chlminga          #+#    #+#             */
-/*   Updated: 2026/09/13 19:51:30 by chlminga         ###   ########.fr       */
+/*   Updated: 2026/09/14 17:53:41 by chlminga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 typedef struct    s_list
 {
     struct s_list *next;
-    void          *data;
+    int           data;
 }                 t_list;
